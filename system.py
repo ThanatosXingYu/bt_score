@@ -300,11 +300,11 @@ class system:
 
     def GetSystemVersion(self):
         # 取操作系统版本
-        key = 'sys_version'
-        version = cache.get(key)
-        if version: return version
+        #key = 'sys_version'
+        #version = cache.get(key)
+        #if version: return version
         version = public.get_os_version()
-        cache.set(key, version, 600)
+        #cache.set(key, version, 600)
         return version
 
     def GetBootTime(self):
@@ -1358,3 +1358,4 @@ class system:
         except:pass
 
         return public.returnMsg(True, logs)
+
