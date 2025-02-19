@@ -6,6 +6,10 @@
 # +-------------------------------------------------------------------
 # | Author: 黄文良 <2879625666@qq.com>
 # +-------------------------------------------------------------------
+# | Copyright (c) 2025 Thanatos. All rights reserved.
+# +-------------------------------------------------------------------
+# | Author: Thanatos <blog.luckysix.cc>
+# +-------------------------------------------------------------------
 
 # +--------------------------------------------------------------------
 # |   服务器测试
@@ -15,14 +19,9 @@ import time, psutil, random, os, urllib, binascii, json, public, re, sys;
 
 
 class score_main:
-
-    # 修正信息
-
     # 发送信息修正
     def SubmitSetScore(self, key, value):
         self.CheckToken();
-
-    # 获取得分列表
 
     # 获取配置信息
     def GetConfig(self, get=None):
@@ -53,9 +52,7 @@ class score_main:
         data['total_score'] = scoreInfo['mem'] + data['cpu_score'] + scoreInfo['disk_score'];
         return data;
 
-    # 提交到云端
-
-    # 取操作系统版本
+    # 获取操作系统版本
     def GetSystemVersion(self):
         version = public.readFile('/etc/redhat-release')
         if not version:
@@ -66,7 +63,7 @@ class score_main:
 
     # 写当前得分
     def writeScore(self, type, value):
-        scoreFile = 'plugin/score/score.json';
+        scoreFile = 'score.json';
         tmp = public.readFile(scoreFile)
         if not tmp:
             data = {}
@@ -87,7 +84,7 @@ class score_main:
 
     # 读当前得分
     def readScore(self):
-        scoreFile = 'plugin/score/score.json';
+        scoreFile = 'score.json';
         tmp = public.readFile(scoreFile)
         if not tmp:
             data = {}
@@ -119,7 +116,7 @@ class score_main:
 
         #import system
         #data['system'] = system.system().GetSystemVersion();
-        path = 'plugin/score/testcpu';
+        path = 'plugin/testcpu';
         if not os.path.exists(path): os.system('gcc ' + path + '.c -o ' + path + ' -lpthread');
         start = time.time();
         os.system(path + ' 32 ' + get.type);

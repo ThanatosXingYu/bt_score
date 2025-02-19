@@ -48,7 +48,7 @@ print(disk_result)
 
 ### 3. 查看测试结果
 
-测试结果将以 JSON 格式存储在 `plugin/score/score.json`，可以手动读取该文件，或使用 `readScore()` 方法：
+测试结果将以 JSON 格式存储在 `score.json`，可以手动读取该文件，或使用 `readScore()` 方法：
 ```python
 scores = benchmark.readScore()
 print(scores)
