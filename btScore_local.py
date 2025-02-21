@@ -23,7 +23,7 @@ import time
 
 import psutil
 
-import public
+from plugin import public
 
 
 class GetScore:
@@ -119,7 +119,7 @@ class GetScore:
         if tmp:
             data['cpuType'] = tmp.groups()[0]
 
-        import system
+        from plugin import system
         data['system'] = system.system().GetSystemVersion()
         path = 'plugin/testcpu'
         if not os.path.exists(path): os.system('gcc ' + path + '.c -o ' + path + ' -lpthread')
